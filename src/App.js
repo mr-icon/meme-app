@@ -1,6 +1,8 @@
 import React from 'react';
 import Joke from './components/Joke'
 import jokesData from './components/jokesData'
+import Nav from "./components/Nav"
+import Form from "./components/Form"
 import './App.css';
 
 function App() {
@@ -9,7 +11,8 @@ function App() {
       })
   return (
     <div className="App">
-      {jokeElements}
+      <Nav />
+      <Form />
     </div>
   );
 }
