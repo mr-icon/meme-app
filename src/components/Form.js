@@ -3,7 +3,6 @@ import jokesData from "./jokesData";
 
 
 function Form() {
-    // const [memeImage, setMemeImage] = useState("")
 
     const [meme, setMeme] = useState({
         topText: "",
@@ -11,26 +10,36 @@ function Form() {
         randomImage: ""
     })
 
-    const [allMemeImage, setAllMemeImage] = useState(jokesData)
     function getImage() {
-        const meme = jokesData.data.memes
-        const randomNumber = Math.floor(Math.random() * meme.length)
-        const url = meme[randomNumber].url
+        const memeArray = jokesData.data.memes
+        const randomNumber = Math.floor(Math.random() * memeArray.length)
+        const url = memeArray[randomNumber].url
         setMeme(prevMeme => ({
             ...prevMeme,
             randomImage: url
         }))
-       
+    }
+
+    function handleChange(event) {
+        const {name, value} = event.target 
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            [name]: value
+        }))
     }
 
     return(
         <main>
             <div className="form">
-                <input type="text" placeholder="Top Text" className="form-input" />
-                <input type="text" placeholder="Bottom Text" className="form-input"/>
+                <input type="text" name="topText" placeholder="Top Text" onChange={handleChange} value={meme.topText} className="form-input" />
+                <input type="text" name="bottomText" placeholder="Bottom Text" onChange={handleChange} value={meme.bottomText} className="form-input"/>
                 <button onClick={getImage} className="form-button">Get a new meme image</button>
             </div>
-            <img src={meme.randomImage} className="meme-image" />
+            <div className="meme">
+                <img src={meme.randomImage} className="meme-image" />
+                 <h2 className="top-meme">{meme.topText}</h2>
+                 <h2 className="bottom-meme">{meme.bottomText}</h2>
+            </div>
         </main>
     )
 }

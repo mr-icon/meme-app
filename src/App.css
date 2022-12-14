@@ -47,5 +47,8 @@ main{
 .meme-image{
   max-width: 100%;
 }
+.meme{
+  position: relative;
+}
 
 
