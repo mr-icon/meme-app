@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 body{
-  font-family: "Karla", sans-serif;
+  /* font-family: "Karla", sans-serif;  */
   margin: 0;
 }
 main{
@@ -46,6 +46,7 @@ main{
 }
 .meme-image{
   max-width: 100%;
+  min-width: 100%;
 }
 .meme{
   margin-top: 30px;
@@ -68,9 +69,9 @@ main{
   position: absolute;
   display: block;
   text-align: center;
-  top: 90%;
+  /* top: 90%; */
   width: 300px;
-  height: 100px;
+  /* height: 100px; */
   right: 20%;
   font-size: 30px;
   font-weight: bold;
